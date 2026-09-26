@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Bima Tech — Jasa Service Komputer & Laptop</title>
+  <link rel="icon" type="image/jpeg" href="WhatsApp Image 2026-09-27 at 01.18.42.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0B3D91;
+      --blue: #0F52BA;
+      --ink: #0E1B33;
+      --paper: #F4F7FC;
+      --line: #DCE4F2;
+      --card: #FFFFFF;
+      --amber: #F5A623;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+      box-sizing: border-box;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --paper: #0A1220;
+        --ink: #EAF0FC;
+        --card: #0F1B30;
+        --line: #1E2C48;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --paper: #0A1220;
+      --ink: #EAF0FC;
+      --card: #0F1B30;
+      --line: #1E2C48;
+    }
+
+    html {
+      scroll-padding-top: env(safe-area-inset-top, 0px);
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Inter', Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    h1,
+    h2,
+    h3,
+    .logo {
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--navy);
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+    }
+
+    .logo {
+      color: #fff;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: .2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    .nav a {
+      color: #cfe0ff;
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 22px;
+    }
+
+    .nav a:hover {
+      color: #fff;
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 6px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    @media (max-width:640px) {
+      .navlinks {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: min(78vw, 300px);
+        background: var(--navy);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        gap: 6px;
+        transform: translateX(100%);
+        transition: transform .25s ease;
+        padding-top: calc(24px + env(safe-area-inset-top, 0px));
+        box-shadow: -8px 0 24px rgba(0, 0, 0, .25);
+      }
+
+      .navlinks.open {
+        transform: translateX(0);
+      }
+
+      .navlinks a {
+        margin-left: 0;
+        padding: 14px 0;
+        font-size: 17px;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, .12);
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, .4);
+        z-index: 9;
+      }
+
+      .nav-overlay.open {
+        display: block;
+      }
+    }
+
+    .hero {
+      background: linear-gradient(180deg, var(--navy), var(--blue));
+      color: #fff;
+      padding: 64px 0 84px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    @media (max-width:800px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .eyebrow {
+      color: #BFD4FF;
+      font-size: 15px;
+      margin: 0 0 10px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 50px);
+      line-height: 1.12;
+      margin: 0 0 18px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: #DCE7FF;
+      max-width: 46ch;
+      margin: 0 0 28px;
+    }
+
+    .btnrow {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    .btn-primary {
+      background: var(--amber);
+      color: #231400;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255, 255, 255, .55);
+    }
+
+    .photo-slot {
+      border: 2px dashed rgba(255, 255, 255, .55);
+      border-radius: 16px;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      color: #DCE7FF;
+      font-size: 14px;
+    }
+
+    section {
+      padding: 64px 0;
+    }
+
+    .section-head {
+      max-width: 60ch;
+      margin: 0 0 36px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(24px, 3.4vw, 32px);
+      margin: 0 0 10px;
+      color: var(--navy);
+    }
+
+    .section-head p {
+      color: #5A6B8C;
+      margin: 0;
+      font-size: 15.5px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    @media (max-width:900px) {
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width:480px) {
+      .services {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .svc {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .svc svg {
+      width: 34px;
+      height: 34px;
+      margin-bottom: 14px;
+    }
+
+    .svc h3 {
+      font-size: 16px;
+      margin: 0 0 8px;
+    }
+
+    .svc p {
+      font-size: 14px;
+      color: #6A7A9B;
+      margin: 0;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    @media (max-width:800px) {
+      .about {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .about .photo-slot {
+      border-color: var(--line);
+      color: #6A7A9B;
+      aspect-ratio: 1/1;
+      max-width: 320px;
+    }
+
+    .about h2 {
+      color: var(--navy);
+    }
+
+    .stat-row {
+      display: flex;
+      gap: 28px;
+      margin-top: 22px;
+    }
+
+    .stat b {
+      display: block;
+      font-size: 26px;
+      color: var(--navy);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .stat span {
+      font-size: 13px;
+      color: #6A7A9B;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width:700px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .gallery .photo-slot{border-color:var(--line); color:#6A7A9B; aspect-ratio:1/1;}
+    .gallery .photo-slot:has(img){padding:0; border:none; overflow:hidden;}
+    .gallery .photo-slot img{width:100%; height:100%; object-fit:cover; display:block;}
+
+    .cta-band {
+      background: var(--blue);
+      color: #fff;
+      border-radius: 20px;
+      padding: 44px 32px;
+      text-align: center;
+    }
+
+    .cta-band h2 {
+      margin: 0 0 10px;
+      font-size: clamp(22px, 3vw, 28px);
+    }
+
+    .cta-band p {
+      margin: 0 0 24px;
+      color: #DCE7FF;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    @media (max-width:700px) {
+      .contact {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact a {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 14.5px;
+    }
+
+    .contact svg {
+      width: 22px;
+      height: 22px;
+      flex: none;
+      color: var(--blue);
+    }
+
+    .contact b {
+      display: block;
+      font-size: 13px;
+      color: #6A7A9B;
+      font-weight: 500;
+    }
+
+    footer {
+      background: var(--navy);
+      color: #BFD4FF;
+      padding: 28px 0;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="nav wrap">
+      <div class="logo">
+        <img src="WhatsApp Image 2026-09-27 at 01.18.42.jpeg" alt="Bima Tech"
+          style="height:32px; width:32px; border-radius:50%; object-fit:cover;">
+        Bima Tech
+      </div>
+      <div class="navlinks" id="navlinks">
+        <a href="#layanan">Layanan</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#kontak" class="cta-link">Kontak</a>
+      </div>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Buka menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-overlay" id="navOverlay"></div>
+  </header>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('hamburgerBtn');
+      var menu = document.getElementById('navlinks');
+      var overlay = document.getElementById('navOverlay');
+      function closeMenu() {
+        menu.classList.remove('open');
+        overlay.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+      function toggleMenu() {
+        var isOpen = menu.classList.toggle('open');
+        overlay.classList.toggle('open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+      btn.addEventListener('click', toggleMenu);
+      overlay.addEventListener('click', closeMenu);
+      menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+    })();
+  </script>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Jasa service komputer & laptop — Balikpapan</p>
+        <h1>Komputer error, lemot, atau rusak? Bima Tech yang benerin.</h1>
+        <p>Maintenance rutin, install ulang OS, perbaikan hardware & software ringan — dikerjain teliti dengan harga
+          yang jelas dari awal.</p>
+        <div class="btnrow">
+          <a class="btn btn-primary" href="https://wa.me/62895370484898" target="_blank" rel="noopener">Chat via
+            WhatsApp</a>
+          <a class="btn btn-ghost" href="#layanan">Lihat Layanan</a>
+        </div>
+      </div>
+      <div class="photo-slot" style="padding:0; border-style:solid; overflow:hidden;">
+        <img src="d93f443f211ab7d837bd1db6d08314bc.jpg" alt="Proses perbaikan hardware laptop"
+          style="width:100%; height:100%; object-fit:cover; display:block;">
+      </div>
+    </div>
+  </section>
+
+  <section id="layanan">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Layanan</h2>
+        <p>Empat layanan utama yang paling sering dibutuhkan — semua bisa dikonsultasikan gratis dulu sebelum
+          dikerjakan.</p>
+      </div>
+      <div class="services">
+        <div class="svc">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#0F52BA" stroke-width="3" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="8" y="10" width="32" height="20" rx="2" />
+            <line x1="16" y1="38" x2="32" y2="38" />
+            <line x1="24" y1="30" x2="24" y2="38" />
+            <line x1="24" y1="15" x2="24" y2="25" />
+            <polyline points="19,20 24,25 29,20" />
+          </svg>
+          <h3>Install Ulang OS</h3>
+          <p>Windows 10/11, driver, dan software dasar lengkap.</p>
+        </div>
+        <div class="svc">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#0F52BA" stroke-width="3" stroke-linecap="round">
+            <path d="M28 14 l6 6 -3 3 -6 -6 -4 -8 8 4z" />
+            <path d="M25 17 l-11 11 -3 7 7 -3 11 -11z" />
+          </svg>
+          <h3>Maintenance</h3>
+          <p>Pembersihan, cek performa, dan perawatan berkala.</p>
+        </div>
+        <div class="svc">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#0F52BA" stroke-width="3" stroke-linecap="round">
+            <circle cx="24" cy="24" r="6" />
+            <line x1="24" y1="10" x2="24" y2="16" />
+            <line x1="24" y1="32" x2="24" y2="38" />
+            <line x1="10" y1="24" x2="16" y2="24" />
+            <line x1="32" y1="24" x2="38" y2="24" />
+          </svg>
+          <h3>Perbaikan Hardware</h3>
+          <p>Ganti LCD, keyboard, RAM/SSD, dan komponen lain.</p>
+        </div>
+        <div class="svc">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#0F52BA" stroke-width="3" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="18,16 8,24 18,32" />
+            <polyline points="30,16 40,24 30,32" />
+            <line x1="27" y1="13" x2="21" y2="35" />
+          </svg>
+          <h3>Perbaikan Software</h3>
+          <p>Error sistem, virus, aplikasi tidak bisa jalan, dll.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tentang"
+    style="background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap about">
+      <div class="photo-slot">
+        <img src="about_illustration.svg" alt="">
+      </div>
+      <div>
+        <h2>Tentang Bima Tech</h2>
+        <p style="color:#6A7A9B; font-size:15.5px;">Jasa service komputer & laptop yang berbasis di Balikpapan.
+          Dikerjakan langsung, teliti, dan komunikatif — dari cek awal sampai laptop kamu balik normal lagi.</p>
+        <div class="stat-row">
+          <div class="stat"><b>100%</b><span>Konsultasi Gratis</span></div>
+          <div class="stat"><b>1-7 Hari</b><span>Rata-rata Pengerjaan</span></div>
+          <div class="stat"><b>Balikpapan</b><span>Area Layanan</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Hasil Kerja</h2>
+        <p>Beberapa dokumentasi pengerjaan — foto sebelum/sesudah atau proses servis.</p>
+      </div>
+      <div class="gallery">
+        <div class="photo-slot">
+          <img src="WhatsApp Image 2026-09-27 at 01.54.16 (1).jpeg" alt="">
+        </div>
+        <div class="photo-slot">
+          <img src="WhatsApp Image 2026-09-27 at 01.54.16.jpeg"alt="">
+        </div>
+        <div class="photo-slot">
+          <img src="WhatsApp Image 2026-09-27 at 01.54.17.jpeg" alt="">
+        </div>
+        <div class="photo-slot">
+          <img src="WhatsApp Image 2026-09-27 at 01.56.30.jpeg" alt="">
+        </div>
+    </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Laptop atau PC kamu lagi bermasalah?</h2>
+        <p>Konsultasi dulu gratis, kerjain kalau udah sepakat.</p>
+        <a class="btn btn-primary" href="https://wa.me/62895370484898" target="_blank" rel="noopener">Chat Sekarang</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Kontak</h2>
+        <p>Bisa hubungi lewat salah satu channel berikut.</p>
+      </div>
+      <div class="contact">
+        <a href="https://wa.me/62895370484898" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20z" />
+            <path
+              d="M16.6 13.9c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.5.1-.5.8-.7.9-.3.2-.5.1a6.6 6.6 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.3.1-.5s.2-.2.3-.4.1-.2.2-.4 0-.3 0-.4-.5-1.2-.7-1.6-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c.6.3 1.1.4 1.5.6a3.6 3.6 0 0 0 1.6.1 2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.2-.2-.4-.3z" />
+          </svg>
+          <span><b>WhatsApp</b>0895 3704 84898</span>
+        </a>
+        <a href="mailto:servicebalikpapan5@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <path d="m4 7 8 6 8-6" />
+          </svg>
+          <span><b>Email</b>servicebalikpapan5@gmail.com</span>
+        </a>
+        <a href="https://instagram.com/bimatech.id" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.2" cy="6.8" r="1" />
+          </svg>
+          <span><b>Instagram</b>@bimatech.id</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      Bima Tech — Jasa Service Komputer & Laptop, Balikpapan · <a href="https://instagram.com/bimatech.id"
+        target="_blank" rel="noopener">@bimatech.id</a>
+    </div>
+  </footer>
+
+</body>
+
+</html>
